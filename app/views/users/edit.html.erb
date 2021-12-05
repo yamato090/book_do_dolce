@@ -1,2 +1,24 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2>ユーザー情報編集</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <table class="table">
+    <tbody>
+      <tr class="table">
+        <td><%= f.label :名前%><br></td>
+        <td><%= f.label :（姓） %><%= f.text_field :first_name %><%= f.label :（名）%><%= f.text_field :last_name %></td>
+      </tr>
+    
+      <tr class="table">
+        <td><%= f.label :ニックネーム%><br></td>
+        <td><%= f.text_field :nickname %></td>
+      </tr>
+    
+      <div class="field">
+        <td><%= f.label :メールアドレス%><br></td>
+        <td><%= f.email_field :email %></td>
+      </tr>
+    
+      <td><%= f.submit "編集内容を保存" %></td>
+      <% end %>
+      <td><%= link_to "退会する", users_unsubscribe_path %></td>
+    </tbody>
+  </table>

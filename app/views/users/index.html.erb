@@ -5,7 +5,9 @@
     <div class="col-md-11 offset-md-1">
       <!--ユーザー一覧を表示-->
       <h2>ユーザー一覧</h2>
-      <%= link_to 'マイページを確認する', user_path(@user.id) %>
+        <% if @user.id == current_user.id %>
+          <%= link_to 'マイページを確認する', user_path(@user) %>
+        <% end %>
         <table class="table border border-dark">
           <thead>
             <th>ニックネーム</th>
@@ -15,7 +17,7 @@
             <th>ユーザー詳細</th>
           </thead>
           <tbody>
-          <!--会員情報を表示-->
+          <!--ユーザー情報を表示-->
           <% @users.each do |user| %>
             <tr>
               <!---->
