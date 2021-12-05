@@ -12,7 +12,7 @@
             <th>レシピ投稿数</th>
             <th>フォロー</th>
             <th>フォロワー数</th>
-            <th>ユーザー詳細リンク</th>
+            <th>ユーザー詳細</th>
           </thead>
           <tbody>
           <!--会員情報を表示-->
@@ -23,7 +23,7 @@
               <td><%#= user. %></td>
               <td><%#= user. %></td>
               <td><%#= user. %></td>
-              <td><%= link_to 'ユーザー詳細', user_path(user), class: "user_#{user.id}" %></td>
+              <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
             </tr>
           <% end %>
           </tbody>
