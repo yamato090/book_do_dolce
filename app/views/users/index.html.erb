@@ -25,14 +25,14 @@
               <td><%#= user. %></td>
               <td><%#= user. %></td>
               <td><%#= user. %></td>
-              <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
+              <td><%= link_to 'ユーザー詳細', user_path(user), class: "user_#{user.id}" %></td>
             </tr>
           <% end %>
           </tbody>
       </table>
       <div>
         <!--kaminariで１０件表示 -->
-        <%#= paginate @customers %>
+        <%#= paginate @users %>
       </div>
     </div>
   </div>
