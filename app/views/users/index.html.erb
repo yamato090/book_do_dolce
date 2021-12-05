@@ -1,2 +1,37 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-11 offset-md-1">
+      <!--ユーザー一覧を表示-->
+      <h2>ユーザー一覧</h2>
+      <%= link_to 'マイページを確認する', user_path(@user.id) %>
+        <table class="table border border-dark">
+          <thead>
+            <th>ニックネーム</th>
+            <th>レシピ投稿数</th>
+            <th>フォロー</th>
+            <th>フォロワー数</th>
+            <th>ユーザー詳細リンク</th>
+          </thead>
+          <tbody>
+          <!--会員情報を表示-->
+          <% @users.each do |user| %>
+            <tr>
+              <!---->
+              <td><%= link_to user.nickname, user_path(user), class: "user_#{user.id}" %><td>
+              <td><%#= user. %></td>
+              <td><%#= user. %></td>
+              <td><%#= user. %></td>
+              <td><%= link_to 'ユーザー詳細', user_path(user), class: "user_#{user.id}" %></td>
+            </tr>
+          <% end %>
+          </tbody>
+      </table>
+      <div>
+        <!--kaminariで１０件表示 -->
+        <%#= paginate @customers %>
+      </div>
+    </div>
+  </div>
+</div>
