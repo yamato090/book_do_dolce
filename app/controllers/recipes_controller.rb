@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
   
   private
   def colect_user
-    user = Recipes.find(params[:id]).user
+    user = Recipe.find(params[:id]).user
     if current_user.id != user.id
       redirect_to recipes_path
     end

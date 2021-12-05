@@ -1,2 +1,33 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-11 offset-md-1">
+      <!--レシピ詳細を表示-->
+      <h2><%= @recipe.name %>のレシピ詳細</h2>
+      <% if @recipe.user.id == current_user.id %>
+        <%= link_to 'このレシピを編集する', edit_recipe_path(@recipe), class: "btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
+      <% end %>
+        <table class="table border border-dark">
+          <thead>
+            <th>ニックネーム</th>
+            <th>レシピ投稿日時</th>
+            <th>カロリー数</th>
+            <th>材料費</th>
+            <th>ユーザーレシピ投稿一覧</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @user.nickname %></td>
+              <td><%= @recipe.created_at.strftime('%Y/%m/%d') %></td>
+              <td><%= @recipe.calories %>kcal</td>
+              <td><%= @recipe.cost %>円</td>
+              <td><%#= link_to 'レシピ投稿詳細', recipes_path %></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+</div>
