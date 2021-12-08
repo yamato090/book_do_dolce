@@ -22,7 +22,7 @@
             <tr>
               <!---->
               <td><%= link_to user.nickname, user_path(user), class: "user_#{user.id}" %><td>
-              <td><%#= user. %></td>
+              <td><%= @current_user.recipes.count %></td>
               <td><%#= user. %></td>
               <td><%#= user. %></td>
               <td><%= link_to 'ユーザー詳細', user_path(user), class: "user_#{user.id}" %></td>

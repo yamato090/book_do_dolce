@@ -26,8 +26,23 @@
             </tr>
           </tbody>
         </table>
-        
       </div>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= attachment_image_tag @recipe, :image, :fill, 150, 150 %>
+    </div>
+    <div class="col-md-3">
+      <%= @recipe.description %>
+      <%= @recipe.ingredients %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%= @recipe.procedure %>
   </div>
 </div>
