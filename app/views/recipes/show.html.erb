@@ -7,6 +7,7 @@
       <h2><%= @recipe.name %>のレシピ詳細</h2>
       <% if @recipe.user.id == current_user.id %>
         <%= link_to 'このレシピを編集する', edit_recipe_path(@recipe), class: "btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
+        <%= link_to 'このレシピを削除する',recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_recipe_#{@recipe.id}"%>
       <% end %>
         <table class="table border border-dark">
           <thead>
@@ -33,7 +34,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= attachment_image_tag @recipe, :image, :fill, 150, 150 %>
+      <%= attachment_image_tag @recipe, :image, :fill, 300, 300 %>
     </div>
     <div class="col-md-3">
       <%= @recipe.description %>
