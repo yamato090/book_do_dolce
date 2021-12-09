@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
       @recipe = Recipe.find(params[:id])
       @recipes = Recipe.all
       @user = @recipe.user
+      @recipe_comment = RecipeComment.new
   end
 
   def create

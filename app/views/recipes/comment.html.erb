@@ -1,0 +1,20 @@
+<table>
+  <% @recipe.recipe_comments.each do |recipe_comment| %>
+    <% recipe_comment_user = recipe_comment.user %>
+    <tr>
+    	<td>
+    		<%= link_to user_path(recipe_comment_user), class: "user_#{recipe_comment_user.id}" do %>
+      		<%= book_comment_user.name %>
+    		<% end %>
+    	</td>
+    	<td><%= recipe_comment.comment %></td>
+    	<% if current_user == recipe_comment_user %>
+      	<td><%= link_to 'Destroy', recipe_recipe_comment_path(recipe_comment.recipe_id, recipe_comment.id), class: 'btn-sm btn-danger', method: :delete %></td>
+    	<% end %>
+    </tr>
+  <% end %>
+</table>
+<%= form_with model:[@recipe,@recipe_comment], local: true do |f| %>
+  <%= f.text_area :comment, size:"90x5" %><br>
+  <%= f.submit '送信'%>
+<% end %>
