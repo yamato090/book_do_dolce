@@ -3,13 +3,15 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <span class="navbar-brand"><%= link_to 'ロゴ(top)',root_path,class: 'fas fa-home nav-link text-light' %>
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+      </span>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li><%= link_to ' About',home_about_path,class: 'fas fa-link nav-link text-light' %></li>
-          <li><%= link_to ' レシピ一覧',recipes_path,class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to ' レシピ一覧',recipes_path,class: 'fas fa-book nav-link text-light' %></li>
           <li><%= link_to ' ユーザー一覧',users_path,class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
         <% else %>

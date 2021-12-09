@@ -1,5 +1,5 @@
 class RecipeCommentsController < ApplicationController
-  
+
 	def create
 		@recipe = Recipe.find(params[:recipe_id])
 		@recipe_comment = RecipeComment.new(recipe_comment_params)
