@@ -20,11 +20,10 @@
           <!--ユーザー情報を表示-->
           <% @users.each do |user| %>
             <tr>
-              <!---->
-              <td><%= link_to user.nickname, user_path(user), class: "user_#{user.id}" %><td>
+              <td><%= link_to user.nickname, user_path(user), class: "user_#{user.id}" %></td>
               <td><%= user.recipes.count %></td>
-              <td><%#= user. %></td>
-              <td><%#= user. %></td>
+              <td></td>
+              <td></td>
               <td><%= link_to 'ユーザー詳細', user_path(user), class: "user_#{user.id}" %></td>
             </tr>
           <% end %>

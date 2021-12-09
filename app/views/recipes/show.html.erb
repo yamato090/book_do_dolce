@@ -15,15 +15,27 @@
             <th>レシピ投稿日時</th>
             <th>カロリー数</th>
             <th>材料費</th>
-            <th>ユーザーレシピ投稿一覧</th>
+            <th>いいね</th>
           </thead>
           <tbody>
             <tr>
-              <td><%= @user.nickname %></td>
+              <td><%= link_to @user.nickname, user_path(@user), class: "user_#{@user.id}" %></td>
               <td><%= @recipe.created_at.strftime('%Y/%m/%d') %></td>
               <td><%= @recipe.calories %>kcal</td>
               <td><%= @recipe.cost %>円</td>
-              <td><%#= link_to 'レシピ投稿詳細', recipes_path %></td>
+              <td>
+                  <% if @recipe.favorited_by?(current_user) %>
+                    <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
+                    <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                    <%= @recipe.favorites.count %>like
+                    <% end %>
+                  <% else %>
+                    <%= link_to recipe_favorites_path(@recipe), method: :post do %>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <%= @recipe.favorites.count %>like
+                    <% end %>
+                  <% end %>
+              </td>
             </tr>
           </tbody>
         </table>

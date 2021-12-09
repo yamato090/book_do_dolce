@@ -19,11 +19,10 @@
           <tbody>
           <!--ユーザー情報を表示-->
             <tr>
-              <!---->
-              <td><%= @user.nickname %><td>
-              <td><%#= user. %></td>
-              <td><%#= user. %></td>
-              <td><%#= user. %></td>
+              <td><%= @user.nickname %></td>
+              <td><%= @user.recipes.count %></td>
+              <td></td>
+              <td></td>
               <td><%= link_to 'レシピ投稿一覧', recipes_path %></td>
             </tr>
           </tbody>
