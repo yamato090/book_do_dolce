@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new] 
 
   resources :recipes do
-    resource :favorites, only: [:create, :destroy]
-      resources :recipe_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy] #いいね機能
+      resources :recipe_comments, only: [:create, :destroy] #コメント機能
   end
 end
