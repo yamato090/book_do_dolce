@@ -9,13 +9,6 @@
   </p>
 </div>
   <div class="text-center pt-3">
-    <!--仮の画像-->
-    <% @recipes.first(1). each do |recipe| %>
-    <tr>
-        <td>
-          <%= attachment_image_tag recipe, :image, :fill, 900, 400 %>
-        </td>
-    </tr>
-    <% end %>
+    <%= image_tag 'logo.jpg', class: "image", size: "400x400" %>
   </div>
 </div>
