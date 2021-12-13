@@ -9,7 +9,7 @@ class User < ApplicationRecord
          has_many :recipe_comments, dependent: :destroy
 
   def full_name
-    first_name + " " + last_name  # 姓と名の間にスペースを追加
+    self.first_name + " " + self.last_name  # 姓と名の間にスペースを追加
   end
 
 end

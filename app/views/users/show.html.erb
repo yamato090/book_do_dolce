@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-12">
       <!--ユーザー一覧を表示-->
       <h1><%= @user.nickname %>さんのユーザー詳細</h1>
       <% if @user.id == current_user.id %>
@@ -30,7 +30,9 @@
 </div>
 <div class='container'>
   <div class='row'>
-      <h4><%= @user.nickname %>のレシピ一覧</h4>
+    <div class="col-md-12">
+    <!--ユーザーレシピ表示-->
+      <h4><%= @user.nickname %>さんの投稿レシピ一覧(全<%= @user.recipes.count %>件)</h4>
       <table class="table border border-dark">
         <thead>
           <tr>
@@ -47,7 +49,8 @@
                 <%= link_to recipe_path(recipe.id) do %>
                   <%= attachment_image_tag recipe, :image, :fill, 150, 150 %>
                 <% end %>
-                <p><%= link_to recipe.name, recipe_path(recipe.id), class: "btn btn-sm btn btn-outline-primary" %>
+                <p class="text-danger"><%= link_to recipe.name, recipe_path(recipe.id), class: "btn btn-sm btn btn-outline-primary" %>
+                <!--レシピいいね数表示-->
                   <%= recipe.favorites.count %>like
                 </p>
               </td>
@@ -62,5 +65,6 @@
         <!--kaminariで5件表示 -->
         <%= paginate @recipes %>
       </div>
+    </div>
   </div>
 </div>
