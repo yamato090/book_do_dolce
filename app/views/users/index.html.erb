@@ -6,7 +6,7 @@
       <!--ユーザー一覧を表示-->
       <h2>ユーザー一覧</h2>
         <% if @user.id == current_user.id %>
-          <%= link_to 'マイページを確認する', user_path(@user), class: "btn btn-sm btn btn-primary" %>
+          <%= link_to 'マイページを確認する', user_path(@user), class: "btn btn-sm btn-success" %>
         <% end %>
         <table class="table border border-dark">
           <thead>
@@ -20,11 +20,11 @@
           <!--ユーザー情報を表示-->
           <% @users.each do |user| %>
             <tr>
-              <td><%= link_to user.nickname, user_path(user), class: "user_#{user.id}" %></td>
+              <td><%= link_to user.nickname, user_path(user), class: "btn btn-sm btn btn-outline-primary user_#{user.id}" %></td>
               <td><%= user.recipes.count %></td>
               <td></td>
               <td></td>
-              <td><%= link_to 'ユーザー詳細', user_path(user), class: "user_#{user.id}" %></td>
+              <td><%= link_to 'ユーザー詳細', user_path(user), class: "btn btn-sm btn btn-outline-primary user_#{user.id}" %></td>
             </tr>
           <% end %>
           </tbody>

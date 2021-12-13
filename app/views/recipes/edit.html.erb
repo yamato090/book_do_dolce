@@ -11,32 +11,32 @@
 
           <div class="form-group">
             <label for="recipe_name">レシピ名</label>
-            <%= f.text_field:name,  size: 30 %>
+            <%= f.text_field:name, size: "40x20" %>
           </div>
 
           <div class="form-group">
             <label for="recipe_description">レシピ説明</label>
-            <%= f.text_field :description %>
+            <%= f.text_area :description, class:"form-control description" %>
           </div>
 
           <div class="form-group">
             <label for="recipe_procedure">レシピ説明（調理手順）</label>
-            <%= f.text_field :procedure %>
+            <%= f.text_area :procedure, class:"form-control procedure" %>
           </div>
 
           <div class="form-group">
             <label for="recipe_ingredients">食材</label>
-            <%= f.text_field:ingredients %>
+            <%= f.text_area:ingredients, class:"form-control ingredients" %>
           </div>
 
           <div class="form-group">
             <label for="recipe_calories">カロリー</label>
-            <%= f.text_field:calories %>kcal
+            &emsp;&emsp;<%= f.text_field:calories %>kcal
           </div>
 
           <div class="form-group">
             <label for="recipe_cost">材料費</label>
-            <%= f.text_field:cost %>円
+            &emsp;&emsp;&emsp;<%= f.text_field:cost %>円
           </div>
 
           <div class="form-group">
