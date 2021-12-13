@@ -2,5 +2,5 @@ class RecipeComment < ApplicationRecord
   belongs_to :user
   belongs_to :recipe
 
-  validates :comment, presence: true
+  validates :comment, presence: true, length: { maximum: 60 }
 end
