@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :set_user, only: [:followings, :followers]
 
   def index
       @user = current_user
@@ -42,6 +43,16 @@ class UsersController < ApplicationController
       @user.destroy
       redirect_to root
   end
+  
+  def followings
+     user = User.find(params[:user_id])
+     @users = user.followegs
+  end
+
+  def followers
+     user = User.find(params[:user_id])
+     @users = user.followers
+  end
 
   private
   def ensure_correct_user
@@ -52,5 +63,9 @@ class UsersController < ApplicationController
   end
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :email)
+  end
+  
+  def set_user
+    @user = User.find(params[:id])
   end
 end
