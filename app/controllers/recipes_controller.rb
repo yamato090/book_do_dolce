@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
       @user = @recipe.user
       @recipe_comment = RecipeComment.new
-      @recipe_comments = RecipeComment.all.page(params[:page]).per(3)
+      @recipe_comments = RecipeComment.page(params[:page]).per(2).reverse_order
   end
 
   def create

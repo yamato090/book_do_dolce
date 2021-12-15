@@ -69,7 +69,7 @@
     <%= render 'recipes/error', model: @recipe_comment %>
     <div class="col-md-1 offset-md-1">
       <%= form_with model:[@recipe,@recipe_comment], local: true do |f| %>
-        <%= f.text_area :comment, :placeholder => "このレシピにコメントする", size:"30x5" %><br>
+        <%= f.text_area :comment, :placeholder => "このレシピにコメントする", size:"27x5" %><br>
         <%= f.submit '送信'%>
       <% end %>
     </div>
@@ -96,7 +96,7 @@
       </table>
       <div>
         <!--kaminariで3件表示 -->
-        <%= paginate @recipe_comments %>
+        <%#= paginate @recipes %>
       </div>
     </div>
   </div>

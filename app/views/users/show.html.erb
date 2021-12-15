@@ -11,8 +11,8 @@
             <th>ニックネーム</th>
             <th>レシピ投稿数</th>
             <th>フォロー</th>
-            <th>フォロワー数</th>
-            <th>ユーザーレシピ投稿一覧</th>
+            <th>フォロー一覧</th>
+            <th>フォロワー一覧</th>
           </thead>
           <tbody>
           <!--ユーザー情報を表示-->
@@ -26,13 +26,15 @@
                   <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-sm  btn-outline-success" %>
                 <% end %>
               </td>
-              <td><%= @user.followers.count %></td>
-              <td><a href="<%= user_followings_path(@user) %>">
-                  <%= @user.followings.count %> following
-                </a>
-                <a href="<%= user_followers_path(@user) %>">
-                  <%= @user.followers.count %> followers
-                </a>
+              <td>
+                <%= link_to user_followings_path(@user), class: "btn btn-sm  btn-outline-info" do %>
+                  <%= @user.followings.count %> フォロー
+                <% end %>
+              </td>
+              <td>
+                <%= link_to user_followers_path(@user), class: "btn btn-sm  btn-outline-info" do %>
+                  <%= @user.followers.count %> フォロワー
+                <% end %>
               </td>
             </tr>
           </tbody>

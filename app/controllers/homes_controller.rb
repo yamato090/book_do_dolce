@@ -6,6 +6,6 @@ class HomesController < ApplicationController
   end
 
   def about
-      @recipes = Recipe.all.order(created_at: :desc)
+
   end
 end
