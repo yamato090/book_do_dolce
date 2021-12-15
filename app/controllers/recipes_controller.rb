@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
       @user = @recipe.user
       @recipe_comment = RecipeComment.new
-      @recipe_comments = RecipeComment.page(params[:page]).per(2).reverse_order
+      @recipe_comments = RecipeComment.page(params[:page]).per(3)
   end
 
   def create
@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
         redirect_to recipe_path(@recipe)
       else
         @recipes = Recipe.all
-        render 'index'
+        render 'new'
       end
   end
 

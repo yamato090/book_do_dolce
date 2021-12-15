@@ -8,13 +8,16 @@ class RecipeCommentsController < ApplicationController
 		if @recipe_comment.save
   		redirect_to recipe_path(@recipe.id)
 		else
+		  @recipes = Recipe.all
+		  @user = @recipe.user
+		  @recipe_comments = RecipeComment.page(params[:page]).per(3)
 		  render 'recipes/show'
 		end
 	end
 
 	def destroy
 		@recipe = Recipe.find(params[:recipe_id])
-  	recipe_comment = @recipe.recipe_comments.find(params[:id])
+  		recipe_comment = @recipe.recipe_comments.find(params[:id])
 		recipe_comment.destroy
 		redirect_to request.referer
 	end

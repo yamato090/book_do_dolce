@@ -51,7 +51,6 @@
     </div>
   </div>
 </div>
-<!--コメント機能-->
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -64,9 +63,13 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <%= render 'recipe_comments/error', model: @recipe_comment %>
+  </div>
+</div>
 <!--<div class="container">-->
   <div class="row">
-    <%= render 'recipes/error', model: @recipe_comment %>
     <div class="col-md-1 offset-md-1">
       <%= form_with model:[@recipe,@recipe_comment], local: true do |f| %>
         <%= f.text_area :comment, :placeholder => "このレシピにコメントする", size:"27x5" %><br>
@@ -78,7 +81,7 @@
         <tbody>
           <div class="card-list-container pt-6row">
           <h3><%= @recipe.name %>のコメント一覧(全<%= @recipe.recipe_comments.count %>件)</h3>
-            <% @recipe.recipe_comments.each do |recipe_comment| %>
+            <% @recipe_comments.each do |recipe_comment| %>
               <% recipe_comment_user = recipe_comment.user %>
                 <td>
               		<%= link_to user_path(recipe_comment_user), class: "btn btn-sm btn btn-outline-primary user_#{recipe_comment_user.id}" do %>
@@ -96,7 +99,7 @@
       </table>
       <div>
         <!--kaminariで3件表示 -->
-        <%#= paginate @recipes %>
+        <%= paginate @recipe_comments %>
       </div>
     </div>
   </div>
