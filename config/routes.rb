@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   get "/home/about" => "homes#about"
   get 'users/unsubscribe' => 'users#unsubscribe'
+  get '/search', to: 'searches#search' # 検索機能
   resources :users, except: [:new] do
-    resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-    get 'followers' => 'relationships#followers', as: 'followers'
+    resource :relationships, only: [:create, :destroy]  # フォロー・フォロワー機能
+    get 'followings' => 'relationships#followings', as: 'followings'  #　フォローリンク
+    get 'followers' => 'relationships#followers', as: 'followers'  #  フォロワーリンク
   end
   resources :recipes do
     resource :favorites, only: [:create, :destroy] #いいね機能

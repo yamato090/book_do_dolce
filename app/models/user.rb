@@ -32,9 +32,16 @@ class User < ApplicationRecord
           def following?(user)
             followings.include?(user)
           end
-
+          
+          def self.search_for(content, method)
+            if method == 'perfect'
+              User.where(nickname: content)
+            else
+              User.where('nickname LIKE ?', '%' + content + '%')
+            end
+          end
+          
   def full_name
     self.first_name + " " + self.last_name  # 姓と名の間にスペースを追加
   end
-
 end
