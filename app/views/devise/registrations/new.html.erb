@@ -1,47 +1,44 @@
-<h2>新規会員登録</h2>
+<main>
+  <div class="container">
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row">
+      <div class="col-md-12 offset-md-4">
+        <h1>新規会員登録</h1>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <label for="user_name">名前</label><br>
+            <%= f.label :（姓） %><%= f.text_field :first_name %><%= f.label :（名）%><%= f.text_field :last_name %>
+          </div>
+          
+          <div class="form-group">
+            <label for="user_nickname">ニックネーム</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <%= f.text_field :nickname %>
+          </div>
+          
+          <div class="form-group">
+            <label for="user_email">メールアドレス</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <%= f.email_field :email %>
+          </div>
+          
+          <div class="form-group">
+            <label for="user_password">パスワード</label>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %>&emsp;&emsp;
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-<table class="table">
-  <tbody>
-  <tr class="table">
-    <td><%= f.label :名前%></td>
-    <td><%= f.text_field :first_name, :placeholder => "姓" %><%= f.label :　%><%= f.text_field :last_name, :placeholder => "名" %></td>
-  </tr>
-
-  <tr class="table">
-    <td><%= f.label :ニックネーム %><br /></td>
-    <td><%= f.text_field :nickname, :placeholder => "ニックネーム" %></td>
-  </tr>
-
-  <tr class="table">
-    <td><%= f.label :メールアドレス %><br /></td>
-    <td><%= f.text_field :email, :placeholder => "toukyou@toukyou" %></td>
-  </tr>
-
-  <tr class="table">
-    <td><%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br /></td>
-    <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-  </tr>
-
-  <tr class="table">
-    <td><%= f.label :パスワード %>（再確認)<br /></td>
-    <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-  </tr>
-
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <td><%= f.submit "新規登録", class: "button_custom btn btn-success center-block" %></td>
+          <div class="form-group">
+            <label for="user_email">パスワード（再確認）</label>&emsp;&emsp;&emsp;
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+        
+          <div class="form-group">
+            <%= f.submit "新規登録", class: "button_custom btn btn-success center-block" %>
+          </div>
+        <% end %>
+        <div>すでに登録済みの方は<%= render "devise/shared/links" %>からログインしてください</div>
+      </div>
+    </div>
   </div>
-  
-  <tr class="table">
-    <td>すでに登録済みの方は
-    <%= render "devise/shared/links" %>
-    <td>からログインしてください</td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+</main>

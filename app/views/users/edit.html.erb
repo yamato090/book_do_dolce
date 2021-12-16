@@ -1,25 +1,32 @@
-<%= render 'users/error', model: @user %>
-<h2>ユーザー情報編集</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <table class="table">
-    <tbody>
-      <tr class="table">
-        <td><%= f.label :名前%><br></td>
-        <td><%= f.label :（姓） %><%= f.text_field :first_name %><%= f.label :（名）%><%= f.text_field :last_name %></td>
-      </tr>
-    
-      <tr class="table">
-        <td><%= f.label :ニックネーム%><br></td>
-        <td><%= f.text_field :nickname %></td>
-      </tr>
-    
-      <div class="field">
-        <td><%= f.label :メールアドレス%><br></td>
-        <td><%= f.email_field :email %></td>
-      </tr>
-    
-      <td><%= f.submit "編集内容を保存" %></td>
-      <% end %>
-      <td><%= link_to "退会する", users_unsubscribe_path, class: "btn btn-sm btn btn-outline-danger" %></td>
-    </tbody>
-  </table>
+<main>
+  <div class="container">
+    <%= render 'users/error', model: @user %>
+    <div class="row">
+      <div class="col-md-12 offset-md-3">
+        <h1>マイページを編集</h1>
+        <%= form_with model:@user, local:true do |f| %>
+          <div class="form-group">
+            <label for="user_name">名前</label><br>
+            <%= f.label :（姓） %><%= f.text_field :first_name %><%= f.label :（名）%><%= f.text_field :last_name %>
+          </div>
+          
+          <div class="form-group">
+            <label for="user_nickname">ニックネーム</label>&emsp;&emsp;&emsp;&emsp;
+            <%= f.text_field :nickname %>
+          </div>
+          
+          <div class="form-group">
+            <label for="user_email">メールアドレス</label>&emsp;&emsp;&emsp;
+            <%= f.email_field :email %>
+          </div>
+        
+          <div class="form-group">
+            <%= f.submit '変更を保存' %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <%= link_to "退会する", users_unsubscribe_path, class: "btn btn-sm btn btn-outline-danger" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
