@@ -3,9 +3,11 @@
     <div class="col-md-12">
       <!--ユーザー一覧を表示-->
       <h2>ユーザー一覧(全<%= @users.count %>人)</h2>
+      <% if user_signed_in? %>
         <% if @user.id == current_user.id %>
           <%= link_to 'マイページを確認する', user_path(@user), class: "btn btn-sm btn-success" %>
         <% end %>
+      <% end %>
         <table class="table border border-dark">
           <thead>
             <th>ニックネーム</th>

@@ -18,6 +18,7 @@
       <% else %>
         <li class="nav-item active"><%= link_to ' About',home_about_path,class: 'fas fa-link nav-link text-light' %></li>
         <li class="nav-item active"><%= link_to ' レシピ一覧',recipes_path,class: 'fas fa-home nav-link text-light' %></li>
+        <li class="nav-item active"><%= link_to ' ユーザー一覧',users_path,class: 'fas fa-users nav-link text-light' %></li>
         <li class="nav-item active"><%= link_to ' 新規登録', new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>
         <li class="nav-item active"><%= link_to ' ログイン', new_user_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%></li>
       <% end %>

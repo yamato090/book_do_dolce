@@ -3,14 +3,18 @@
     <div class="col-md-12">
       <!--ユーザー一覧を表示-->
       <h1><%= @user.nickname %>さんのユーザー詳細</h1>
-      <% if @user.id == current_user.id %>
-        <%= link_to 'マイページを編集する', edit_user_path(@user), class: "btn btn-sm btn-success edit_user_#{@user.id}" %>
+      <% if user_signed_in? %>
+        <% if @user.id == current_user.id %>
+          <%= link_to 'マイページを編集する', edit_user_path(@user), class: "btn btn-sm btn-success edit_user_#{@user.id}" %>
+        <% end %>
       <% end %>
         <table class="table border border-dark">
           <thead>
             <th>ニックネーム</th>
             <th>レシピ投稿数</th>
-            <th>フォロー</th>
+            <% if user_signed_in? %>
+              <th>フォロー</th>
+            <% end %>
             <th>フォロー一覧</th>
             <th>フォロワー一覧</th>
           </thead>
@@ -19,13 +23,15 @@
             <tr>
               <td><%= @user.nickname %></td>
               <td><%= @user.recipes.count %></td>
-              <td>
-                <% if current_user.following?(@user) %>
-                  <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-sm  btn-outline-success" %>
-                <% else %>
-                  <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-sm  btn-outline-success" %>
-                <% end %>
-              </td>
+              <% if user_signed_in? %>
+                <td>
+                  <% if current_user.following?(@user) %>
+                    <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-sm  btn-outline-success" %>
+                  <% else %>
+                    <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-sm  btn-outline-success" %>
+                  <% end %>
+                </td>
+              <% end %>
               <td>
                 <%= link_to user_followings_path(@user), class: "btn btn-sm  btn-outline-info" do %>
                   <%= @user.followings.count %> フォロー

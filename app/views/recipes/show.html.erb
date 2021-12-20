@@ -3,9 +3,11 @@
     <div class="col-md-12">
       <!--レシピ詳細を表示-->
       <h2><%= @recipe.name %>のレシピ詳細</h2>
-      <% if @recipe.user.id == current_user.id %>
-        <%= link_to 'このレシピを編集する', edit_recipe_path(@recipe), class: "btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
-        <%= link_to 'このレシピを削除する',recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_recipe_#{@recipe.id}"%>
+      <% if user_signed_in? %>
+        <% if @recipe.user.id == current_user.id %>
+          <%= link_to 'このレシピを編集する', edit_recipe_path(@recipe), class: "btn btn-sm btn-success edit_recipe_#{@recipe.id}" %>
+          <%= link_to 'このレシピを削除する',recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_recipe_#{@recipe.id}"%>
+        <% end %>
       <% end %>
         <table class="table border border-dark">
           <thead>
@@ -13,7 +15,9 @@
             <th>レシピ投稿日時</th>
             <th>カロリー数</th>
             <th>材料費</th>
-            <th>いいね</th>
+            <% if user_signed_in? %>
+              <th>いいね</th>
+            <% end %>
           </thead>
           <tbody>
             <tr>
@@ -21,6 +25,7 @@
               <td><%= @recipe.created_at.strftime('%Y/%m/%d') %></td>
               <td><%= @recipe.calories %>kcal</td>
               <td><%= @recipe.cost %>円</td>
+              <% if user_signed_in? %>
               <td>
                 <!--いいね機能-->
                   <% if @recipe.favorited_by?(current_user) %>
@@ -35,6 +40,7 @@
                     <% end %>
                   <% end %>
               </td>
+              <% end %>
             </tr>
           </tbody>
         </table>
@@ -70,18 +76,20 @@
 </div>
 <!--<div class="container">-->
   <div class="row">
-    <div class="col-md-1 offset-md-1">
-      <%= form_with model:[@recipe,@recipe_comment], local: true do |f| %>
-        <%= f.text_area :comment, :placeholder => "このレシピにコメントする", size:"25x5" %><br>
-        <%= f.submit '送信'%>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>  
+      <div class="col-md-1 offset-md-1">
+        <%= form_with model:[@recipe,@recipe_comment], local: true do |f| %>
+          <%= f.text_area :comment, :placeholder => "このレシピにコメントする", size:"25x5" %><br>
+          <%= f.submit '送信'%>
+        <% end %>
+      </div>
+    <% end %>
     <div class="col-md-8 offset-md-1">
       <table class="table table-hover table-inverse">
         <tbody>
           <div class="card-list-container pt-6row">
           <h3><%= @recipe.name %>のコメント一覧(全<%= @recipe.recipe_comments.count %>件)</h3>
-            <% @recipe_comments.each do |recipe_comment| %>
+            <% @recipe.recipe_comments.each do |recipe_comment| %>
               <% recipe_comment_user = recipe_comment.user %>
                 <td>
               		<%= link_to user_path(recipe_comment_user), class: "btn btn-sm btn btn-outline-primary user_#{recipe_comment_user.id}" do %>
