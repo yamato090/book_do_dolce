@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show,]
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :set_user, only: [:followings, :followers]
 
@@ -13,8 +14,10 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @recipe = Recipe.new
       @recipes = @user.recipes.page(params[:page]).per(5)
-      favorites = Favorite.where(user_id: current_user.id).pluck(:recipe_id)  # ログイン中のユーザーのお気に入りのrecipe_idカラムを取得
-      @favorite_list = Recipe.find(favorites)     # recipesテーブルから、お気に入り登録済みのレコードを取得
+      if user_signed_in?
+        favorites = Favorite.where(user_id: current_user.id).pluck(:recipe_id)  # ログイン中のユーザーのお気に入りのrecipe_idカラムを取得
+        @favorite_list = Recipe.find(favorites)     # recipesテーブルから、お気に入り登録済みのレコードを取得
+      end
   end
 
   def edit
@@ -36,14 +39,15 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
+      
   end
 
   def destroy
       @user = User.find(params[:id])
       @user.destroy
-      redirect_to root
+       redirect_to :root
   end
-  
+
   def followings
      user = User.find(params[:user_id])
      @users = user.followegs
@@ -64,7 +68,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :email)
   end
-  
+
   def set_user
     @user = User.find(params[:id])
   end
