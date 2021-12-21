@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :recipe_comment do
+    association :user
+    association :recipe
     comment { "MyString" }
-    user { nil }
-    recipe { nil }
   end
 end

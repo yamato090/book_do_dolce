@@ -10,8 +10,8 @@ class Recipe < ApplicationRecord
   validates :description    , presence: true,    length: { in: 1..200 }
   validates :procedure      , presence: true,    length: { in: 5..500 }
   validates :ingredients    , presence: true,    length: { in: 1..200 }
-  validates :calories       , presence: true
-  validates :cost           , presence: true
+  validates :calories       , presence: true,    length: { in: 1..30 }
+  validates :cost           , presence: true,    length: { in: 1..30 }
   validates :image          , presence: true
   
   def favorited_by?(user)

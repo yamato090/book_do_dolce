@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :recipe do
-    user_id { 1 }
+    association :user
     name { "MyString" }
     description { "MyText" }
     procedure { "MyText" }
