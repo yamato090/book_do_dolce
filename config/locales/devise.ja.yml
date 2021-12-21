@@ -25,6 +25,17 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        first_name: （姓）
+        last_name: （名）
+        nickname: ニックネーム
+      recipe:
+        name: レシピ名
+        description: レシピ説明
+        procedure: レシピ説明（調理手順）
+        ingredients: 食材
+        calories: カロリー
+        cost: 材料費
+        image: レシピ写真
     models:
       user: ユーザー
   devise:

@@ -18,10 +18,13 @@ class User < ApplicationRecord
 
           validates :first_name   , presence: true,    length: { in: 1..20 }
           validates :last_name    , presence: true,    length: { in: 1..20 }
-          validates :nickname     , uniqueness: true,    length: { in: 1..30 }
-          
+          validates :nickname     , presence: true,    uniqueness: true,        length: { in: 1..30 }
+
           VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-          validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+          validates :email, presence: true,
+                    length: { maximum: 255 },
+                    uniqueness: { case_sensitive: false },
+                    format: { with: VALID_EMAIL_REGEX }
 
 
           # フォローしたときの処理
@@ -47,5 +50,11 @@ class User < ApplicationRecord
 
   def full_name
     self.first_name + " " + self.last_name  # 姓と名の間にスペースを追加
+  end
+
+  private
+
+  def downcase_email
+    self.email = self.email.downcase
   end
 end
