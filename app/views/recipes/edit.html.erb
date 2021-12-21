@@ -3,7 +3,7 @@
     <%= render 'recipes/error', model: @recipe %>
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
-        <h1>レシピ編集</h1>
+        <h1><%= @recipe.name %>を編集する</h1>
         <%= form_with model:@recipe, url: recipe_path(@recipe), local:true do |f| %>
           <div class="form-group">
             <label for="recipe_image">レシピ画像</label>
@@ -41,7 +41,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.submit '変更を保存' %>
+            <%= f.submit '変更を保存する' %>
           </div>
         <% end %>
       </div>
