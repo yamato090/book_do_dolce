@@ -1,2 +1,14 @@
-<h1>Users#unsubscribe</h1>
-<p>Find me in app/views/users/unsubscribe.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 offset-md-4">
+     <h1 class="font-weight-bold mt-5">本当に退会しますか？</h1>
+     <p class="my-5">
+     退会すると、会員登録情報が<br>
+     全て削除され、投稿したレシピなども削除されます。<br>
+     退会する場合は、「退会する」をクリックしてください。
+     </p>
+     <%= link_to '退会しない', root_path, class:"btn btn btn btn-primary mx-3" ,style:"width:150px" %>
+     <%= link_to "退会する",user_path(current_user.id), class: "destroy-user", method: :delete, "data-confirm" => "本当に退会しますか？",class:"btn btn-danger mx-3" ,style:"width:150px" %>
+    </div>
+  </div>
+</div>
