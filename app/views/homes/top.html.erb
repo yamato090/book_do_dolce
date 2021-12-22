@@ -1,20 +1,18 @@
 <div class="container">
   <div class="example">
-    <% @recipes.first(1). each do |recipe| %>
-    <tr>
-      <td>
-        <!--仮の-->
         <div class="text-center m-5">
-          <%= attachment_image_tag recipe, :image, :fill, 800, 400 %>
+          <div class="a">
+            <div class="b"><img class="c" src="assets/candle-3111760_960_720"></div>
+            <div class="b"><img class="c" src="assets/cake-4916486_960_720"></div>
+            <div class="b"><img class="c" src="assets/coffee-3163596_960_720"></div>
+            <div class="b"><img class="c" src="assets/cupcake-3723832_960_720"></div>
+          </div>
           <p>ようこそ、Book do Dolceへ！<br>
             このサイトは、レシピ投稿サイトになります。<br>
-            会員でないかたもレシピの閲覧はできますが、<br>
+            会員でないかたも投稿されたレシピの閲覧はできますが、<br>
             投稿には会員登録が必要になります。
           </p>
         </div>
-      </td>
-    </tr>
-    <% end %>
       <h2 class="mt-3">新着レシピ</h2>
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-eq-height">

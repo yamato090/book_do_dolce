@@ -19,3 +19,20 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require jquery
+//= require rails-ujs
+
+// slickの環境構築
+$(function() {
+    $('.a').slick({
+        dots: true,
+        // slickのオートプレイ
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+    // slickマウスオーバーで表示画像を変える
+    $('.slick-dots li').on('mouseover', function() {
+        $('.a').slick('goTo', $(this).index());
+    });
+});
