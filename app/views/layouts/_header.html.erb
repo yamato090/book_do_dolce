@@ -3,7 +3,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="#">
-    <%= link_to root_path do %>
+    <%= link_to root_path, data: {"turbolinks" => false} do %>
       <%= image_tag 'logo.jpg', class: "image", size: "80x80" %>
     <% end %>
   </a>

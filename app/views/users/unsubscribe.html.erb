@@ -7,7 +7,7 @@
      全て削除され、投稿したレシピなども削除されます。<br>
      退会する場合は、「退会する」をクリックしてください。
      </p>
-     <%= link_to '退会しない', root_path, class:"btn btn btn btn-primary mx-3" ,style:"width:150px" %>
+     <%= link_to '退会しない', root_path, data: {"turbolinks" => false}, class:"btn btn btn btn-primary mx-3" ,style:"width:150px" %>
      <%= link_to "退会する",user_path(current_user.id), class: "destroy-user", method: :delete, "data-confirm" => "本当に退会しますか？",class:"btn btn-danger mx-3" ,style:"width:150px" %>
     </div>
   </div>
