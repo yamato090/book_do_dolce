@@ -2,8 +2,11 @@ class Recipe < ApplicationRecord
   attachment :image
 
   belongs_to :user
-
+  # いいね
   has_many :favorites       , dependent: :destroy
+  # いいね順表示
+  has_many :favorites_users, through: :favorites, source: :user
+  # レシピコメント
   has_many :recipe_comments , dependent: :destroy
 
   validates :name           , presence: true,    length: { in: 1..40 }
