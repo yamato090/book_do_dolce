@@ -9,6 +9,7 @@
   </p>
 </div>
   <div class="text-center pt-3">
-    <%= image_tag 'love-3141228_960_720', class: "image", size: "500x400" %>
+    <%#= image_tag　asset_path ('love-3141228_960_720', class: "image", size: "500x400") %>
+    <%= image_tag asset_path('love-3141228_960_720', :width =>'112', :height =>'auto', :alt => 'love-3141228_960_720') %>
   </div>
 </div>
