@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.example {/*親div*/
+.top-1 {/*親div*/
   position: relative;/*相対配置*/
   }
 
-.example p {
+.top-1 p {
   position: absolute;
   top: 85%;
   left: 50%;
@@ -20,8 +20,39 @@
   color: #FFF0F5;
   }
 
-.example img {
+.top-1 img {
   width: 100%;
+  }
+
+.top-2 {/*親div*/
+  position: relative;/*相対配置*/
+  top: 100%;
+  }
+
+.top-2 {
+  position: relative;/*相対配置*/
+  top: 50%;
+  left: 45%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin-top: 20px;
+  padding: 15px;
+  height: 1250px;
+  font-size: 20px;
+  }
+
+.top-3 {
+  position: relative;/*相対配置*/
+  top: 50%;
+  left: 45%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin-top: 20px;
+  padding: 15px;
+  height: 2550px;
+  font-size: 20px;
   }
 
 

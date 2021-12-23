@@ -105,18 +105,18 @@ RSpec.describe Recipe, type: :model do
         end
       end
 
-      context 'when length is 1000 characters or less is valid' do
-        it 'procedureが1000文字以下の場合は、有効であること' do
-          recipe.procedure = 'a' * 1000
+      context 'when length is 3000 characters or less is valid' do
+        it 'procedureが3000文字以下の場合は、有効であること' do
+          recipe.procedure = 'a' * 3000
           expect(recipe).to be_valid
         end
       end
 
-      context 'when length is more than 1000 characters is invalid' do
-        it 'procedureが1000文字を超える場合は、無効であること' do
-          recipe.procedure = 'a' * 1001
+      context 'when length is more than 3000 characters is invalid' do
+        it 'procedureが3000文字を超える場合は、無効であること' do
+          recipe.procedure = 'a' * 3001
           expect(recipe).to be_invalid
-          expect(recipe.errors[:procedure]).to include('は1000文字以内で入力してください')
+          expect(recipe.errors[:procedure]).to include('は3000文字以内で入力してください')
         end
       end
     end

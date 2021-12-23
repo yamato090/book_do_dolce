@@ -23,9 +23,9 @@
                   <%= recipe.favorites.count %>like
                 </p>
               </td>
-              <td><%= recipe.description %></td>
+              <td width="20%"><%= recipe.description %></td>
               <td><%= recipe.ingredients %></td>
-              <td><%= link_to 'レシピ詳細', recipe_path(recipe), class: "btn btn-sm btn btn-outline-primary recipe_#{recipe.id}" %></td>
+              <td width="15%"><%= link_to 'レシピ詳細', recipe_path(recipe), class: "btn btn-sm btn btn-outline-primary recipe_#{recipe.id}" %></td>
             </tr>
           <% end %>
         </tbody>

@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
 
   validates :name           , presence: true,    length: { in: 1..40 }
   validates :description    , presence: true,    length: { in: 1..200 }
-  validates :procedure      , presence: true,    length: { in: 5..1000 }
+  validates :procedure      , presence: true,    length: { in: 5..3000 }
   validates :ingredients    , presence: true,    length: { in: 1..500 }
   validates :calories       , presence: true,    length: { in: 1..30 }
   validates :cost           , presence: true,    length: { in: 1..30 }
