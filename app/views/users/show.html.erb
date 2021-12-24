@@ -13,7 +13,7 @@
             <th>ニックネーム</th>
             <th>レシピ投稿数</th>
             <% if user_signed_in? %>
-              <th>フォロー</th>
+              <th>&emsp;フォロー</th>
             <% end %>
             <th>フォロー一覧</th>
             <th>フォロワー一覧</th>
@@ -22,7 +22,7 @@
           <!--ユーザー情報を表示-->
             <tr>
               <td><%= @user.nickname %></td>
-              <td><%= @user.recipes.count %></td>
+              <td>&emsp;&emsp;<%= @user.recipes.count %></td>
               <% if user_signed_in? %>
                 <td>
                   <% if current_user.following?(@user) %>

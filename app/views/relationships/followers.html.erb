@@ -16,9 +16,9 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= link_to user.nickname, user_path(user), class: "btn btn-sm btn btn-outline-primary user_#{user.id}" %></td>
-              <td><%= user.recipes.count %></td>
-              <td><%= user.followings.count %></td>
-              <td><%= user.followers.count %></td>
+              <td>&emsp;&emsp;<%= user.recipes.count %></td>
+              <td>&emsp;&emsp;<%= user.followings.count %></td>
+              <td>&emsp;&emsp;<%= user.followers.count %></td>
               <td><%= link_to 'ユーザー詳細', user_path(user), class: "btn btn-sm btn btn-outline-primary user_#{user.id}" %></td>
             </tr>
           <% end %>

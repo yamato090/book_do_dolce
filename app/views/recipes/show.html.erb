@@ -34,11 +34,11 @@
                     <% else %>
                       <%= link_to recipe_favorites_path(@recipe), class: "btn btn-sm btn btn-outline-danger", method: :post do %>
                       <i class="fa fa-heart-o" aria-hidden="true"></i>
-                      <%= @recipe.favorites.count %>like
+                      <%= @recipe.favorites.count%>like
                       <% end %>
                     <% end %>
                   <% else %>
-                    <%= @recipe.favorites.count %><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                    <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i><%= @recipe.favorites.count %>
                   <% end %>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
     <% if user_signed_in? %>
       <div class="col-md-1 offset-md-1">
         <%= form_with model:[@recipe,@recipe_comment], local: true do |f| %>
-          <%= f.text_area :comment, :placeholder => "このレシピにコメントする", size:"25x5" %><br>
+          <%= f.text_area :comment, :placeholder => "コメントする", size:"25x5" %><br>
           <%= f.submit '送信'%>
         <% end %>
       </div>
@@ -90,7 +90,7 @@
     <div class="col-md-8 offset-md-1">
       <table class="table table-hover table-inverse">
         <tbody>
-          <div class="card-list-container pt-6row ">
+          <div class="card-list-container pt-6row">
           <h3><%= @recipe.name %>のコメント一覧(全<%= @recipe.recipe_comments.count %>件)</h3>
             <% @recipe.recipe_comments.each do |recipe_comment| %>
               <% recipe_comment_user = recipe_comment.user %>
