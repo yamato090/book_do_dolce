@@ -2,7 +2,7 @@
   <div class="container">
     <%= render 'recipes/error', model: @recipe %>
     <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+      <div class="col-md-8 mx-auto">
         <h1><%= @recipe.name %>を編集する</h1>
         <%= form_with model:@recipe, url: recipe_path(@recipe), local:true do |f| %>
           <div class="form-group">

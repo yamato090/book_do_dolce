@@ -72,18 +72,18 @@ RSpec.describe Recipe, type: :model do
         end
       end
 
-      context 'when length is 200 characters or less is valid' do
-        it 'nameが200文字以下の場合は、有効であること' do
-          recipe.description = 'a' * 200
+      context 'when length is 500 characters or less is valid' do
+        it 'ndescriptionが500文字以下の場合は、有効であること' do
+          recipe.description = 'a' * 500
           expect(recipe).to be_valid
         end
       end
 
-      context 'when length is more than 200 characters is invalid' do
-        it 'descriptionが200文字を超える場合は、無効であること' do
-          recipe.description = 'a' * 201
+      context 'when length is more than 500 characters is invalid' do
+        it 'descriptionが500文字を超える場合は、無効であること' do
+          recipe.description = 'a' * 501
           expect(recipe).to be_invalid
-          expect(recipe.errors[:description]).to include('は200文字以内で入力してください')
+          expect(recipe.errors[:description]).to include('は500文字以内で入力してください')
         end
       end
     end
@@ -145,18 +145,18 @@ RSpec.describe Recipe, type: :model do
         end
       end
 
-      context 'when length is 500 characters or less is valid' do
-        it 'ingredientsが500文字以下の場合は、有効であること' do
-          recipe.ingredients = 'a' * 500
+      context 'when length is 1000 characters or less is valid' do
+        it 'ingredientsが1000文字以下の場合は、有効であること' do
+          recipe.ingredients = 'a' * 1000
           expect(recipe).to be_valid
         end
       end
 
-      context 'when length is more than 500 characters is invalid' do
-        it 'ingredientsが500文字を超える場合は、無効であること' do
-          recipe.ingredients = 'a' * 501
+      context 'when length is more than 1000 characters is invalid' do
+        it 'ingredientsが1000文字を超える場合は、無効であること' do
+          recipe.ingredients = 'a' * 1001
           expect(recipe).to be_invalid
-          expect(recipe.errors[:ingredients]).to include('は500文字以内で入力してください')
+          expect(recipe.errors[:ingredients]).to include('は1000文字以内で入力してください')
         end
       end
     end

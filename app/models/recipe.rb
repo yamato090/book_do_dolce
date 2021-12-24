@@ -10,9 +10,9 @@ class Recipe < ApplicationRecord
   has_many :recipe_comments , dependent: :destroy
 
   validates :name           , presence: true,    length: { in: 1..40 }
-  validates :description    , presence: true,    length: { in: 1..200 }
+  validates :description    , presence: true,    length: { in: 1..500 }
   validates :procedure      , presence: true,    length: { in: 5..3000 }
-  validates :ingredients    , presence: true,    length: { in: 1..500 }
+  validates :ingredients    , presence: true,    length: { in: 1..1000 }
   validates :calories       , presence: true,    length: { in: 1..30 }
   validates :cost           , presence: true,    length: { in: 1..30 }
   validates :image          , presence: true

@@ -5,16 +5,16 @@
       <table class="table border border-dark">
         <thead>
           <tr>
-            <th>&emsp;&emsp;写真</th>
-            <th>&emsp;説明</th>
-            <th>&emsp;材料</th>
-            <th>&emsp;詳細</th>
+            <th class="border border-dark">&emsp;&emsp;写真</th>
+            <th class="border border-dark">&emsp;レシピ説明</th>
+            <th class="border border-dark">&emsp;材料</th>
+            <th class="border border-dark">&emsp;詳細</th>
           </tr>
         </thead>
         <tbody>
           <% @recipes.each do |recipe| %>
             <tr>
-              <td>
+              <td class="border border-dark">
                 <%= link_to recipe_path(recipe.id) do %>
                   <%= attachment_image_tag recipe, :image, :fill, 150, 150 %>
                 <% end %>
@@ -23,10 +23,10 @@
                   <%= recipe.favorites.count %><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
                 </p>
               </td>
-              <td width="20%"><%= recipe.description %></td>
-              <td><%= recipe.ingredients %></td>
+              <td class="border border-dark" width="20%"><%= recipe.description %></td>
+              <td class="border border-dark"><%= recipe.ingredients %></td>
               <!--tableで幅や高さを変えるには<td width="80" height="100">80×100</td>-->
-              <td width="15%"><%= link_to 'レシピ詳細', recipe_path(recipe), class: "btn btn-sm btn btn-outline-primary recipe_#{recipe.id}" %></td>
+              <td class="border border-dark" width="15%"><%= link_to 'レシピ詳細', recipe_path(recipe), class: "btn btn-sm btn btn-outline-primary recipe_#{recipe.id}" %></td>
             </tr>
           <% end %>
         </tbody>

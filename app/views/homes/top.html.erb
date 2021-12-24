@@ -3,6 +3,7 @@
         <div class="col-md-12 offset-md-1">
           <div class="text-center m-5">
             <div class="a">
+              <!--asset_pathは本番環境でも画像を表示させるため-->
               <div class="b"><img class="c" src="<%= asset_path("candle-3111760_960_720.jpg") %>"></div>
               <div class="b"><img class="c" src="<%= asset_path("cake-4916486_960_720.jpg") %>"></div>
               <div class="b"><img class="c" src="<%= asset_path("coffee-3163596_960_720.jpg") %>"></div>
@@ -16,8 +17,8 @@
           </div>
         </div>
       <div class="top-2">
-        <div class="col-md-2">
-          <h3 class="mt-4"><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>ランキング<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></h3>
+        <div class="col-md-2 border rounded border border-danger">
+          <h3 class="mt-4"><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>ランキング
           <% @recipe.first(3). each do |recipe| %>
             <div class="card mx-auto">
               <%= link_to recipe_path(recipe) do %>
