@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
       @user = current_user
+      @usercount = User.all
       @users = User.all.page(params[:page]).per(10)
       @recipe = Recipe.new
       @recipes = Recipe.all
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-      
+
   end
 
   def destroy

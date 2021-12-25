@@ -1,7 +1,7 @@
-<div class='container px-5 px-sm-0'>
+<div class='container'>
   <div class='row'>
-      <h1>レシピ一覧(全<%= @recipes.count %>件)</h1>&emsp;
-      <h2><%= link_to '＋新規レシピ登録', new_recipe_path, class: "btn btn-sm btn btn-primary" %></h2>
+    <h1>レシピ一覧(全<%= @recipecount.count %>件)</h1>&emsp;
+    <h2><%= link_to '＋新規レシピ登録', new_recipe_path, class: "btn btn-sm btn btn-primary" %></h2>
       <table class="table border border-dark">
         <thead>
           <tr>
@@ -31,9 +31,9 @@
           <% end %>
         </tbody>
       </table>
-      <div>
-        <!--kaminariで１０件表示 -->
-        <%= paginate @recipes %>
-      </div>
+    <div class="kaminari">
+      <!--kaminariで１０件表示 -->
+      <%= paginate @recipes %>
+    </div>
   </div>
 </div>

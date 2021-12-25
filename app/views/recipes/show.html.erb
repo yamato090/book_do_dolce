@@ -13,7 +13,7 @@
           <thead>
             <th>ニックネーム</th>
             <th>レシピ投稿日時</th>
-            <th>カロリー数</th>
+            <th>カロリー</th>
             <th>材料費</th>
             <th>いいね</th>
           </thead>
@@ -92,7 +92,7 @@
         <tbody>
           <div class="card-list-container pt-6row">
           <h3><%= @recipe.name %>のコメント一覧(全<%= @recipe.recipe_comments.count %>件)</h3>
-            <% @recipe.recipe_comments.each do |recipe_comment| %>
+            <% @recipe_comments.each do |recipe_comment| %>
               <% recipe_comment_user = recipe_comment.user %>
                 <td>
               		<%= link_to user_path(recipe_comment_user), class: "btn btn-sm btn btn-outline-primary user_#{recipe_comment_user.id}" do %>

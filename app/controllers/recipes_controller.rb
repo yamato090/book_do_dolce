@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   def index
       @user = current_user
+      @recipecount = Recipe.all
       @recipes = Recipe.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
@@ -17,7 +18,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
       @user = @recipe.user
       @recipe_comment = RecipeComment.new
-      @recipe_comments = RecipeComment.order(created_at: :desc).page(params[:page]).per(3)
+      @recipe_comments = RecipeComment.where(recipe_id: @recipe.id).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def create
