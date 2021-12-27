@@ -91,6 +91,7 @@
       <table class="table table-hover table-inverse">
         <tbody>
           <div class="card-list-container pt-6row">
+            <!--コメント-->
           <h3><%= @recipe.name %>のコメント一覧(全<%= @recipe.recipe_comments.count %>件)</h3>
             <% @recipe_comments.each do |recipe_comment| %>
               <% recipe_comment_user = recipe_comment.user %>
